@@ -64,6 +64,10 @@
     padding-left: 10px; 
 }
 
+.box{
+    float: left;
+}
+
 /*
 .center-container {
     padding-left: 12.5%;
