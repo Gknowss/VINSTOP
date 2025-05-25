@@ -36,7 +36,9 @@
                         'Content-Type': 'applicatoin/json'
                     },
                     body: data
-                })
+                }).then(res => res.json())
+                  .then(data => console.log(data))
+                  .catch(error => console.log(error))
             });
 
      </script>
