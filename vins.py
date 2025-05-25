@@ -10,7 +10,7 @@ API_URL = "https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvaluesbatch/"
 # Read VINs from CSV file 
 def get_vins_from_csv(file_path="vin_list.csv"):
     df = pd.read_csv(file_path)
-    return df["VIN"].tolist()  # Assuming the CSV has a column named "VIN"
+    return df["variableid"].tolist() 
 
 # Fetch VIN details from NHTSA
 def fetch_trailer_vins(vins):
