@@ -135,7 +135,7 @@
 
       $('#results').html('<div class="alert alert-info">Loading data for VIN: <strong>' + vin + '</strong>...</div>');
 
-      const dataToSend = JSON.stringify({ vins: [vin] });
+      const dataToSend = { vins: [vin] };
 
       $.ajax({
         url: '../backend/decode_vins.php',
