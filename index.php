@@ -138,14 +138,14 @@
       const dataToSend = JSON.stringify({ vins: [vin] });
 
       $.ajax({
-        url: 'decode_vins.php', 
+        url: '../backend/decode_vins.php',
         method: 'POST',
         contentType: 'application/json',
-        data: dataToSend,
+        data: JSON.stringify(dataToSend),
         dataType: 'json',
         success: function(response) {
           if (response.success && response.data && response.data.length > 0) {
-            const vinInfo = response.data[0]; 
+            const vinInfo = response.data[0];
 
             let html = `<h4>VIN Information for <code>${vin}</code>:</h4>`;
             html += '<table class="table table-bordered table-sm"><tbody>';
