@@ -28,7 +28,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="form-inline my-2 my-lg-0 ml-auto align-items-center" id="searchForm" role="search" style="max-width: 600px;">
-        <!-- Search Bar -->
         <input
           class="form-control mr-2"
           type="search"
@@ -38,7 +37,6 @@
           style="min-width: 180px; max-width: 300px;"
         />
 
-        <!-- Sorting -->
         <select
           class="form-control mr-2 d-none"
           id="sortBy"
@@ -51,7 +49,6 @@
           <option value="mileage_desc">Mileage High to Low</option>
         </select>
 
-        <!-- Search Button -->
         <button class="btn btn-success" type="submit" style="white-space: nowrap;">
           Search
         </button>
@@ -127,28 +124,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
   <script>
-    // Search form submit handler
     $('#searchForm').on('submit', function(e) {
       e.preventDefault();
 
       const vin = $('#vinInput').val().trim();
-      const filterType = $('#filterType').val();
-      const sortBy = $('#sortBy').val();
-
       if (!vin) {
         $('#results').html(`<div class="alert alert-warning">Please enter a VIN to search.</div>`);
         return;
       }
 
-      // Simulate search result (replace with your actual search logic)
-      let resultHtml = `<div class="alert alert-info">
-        Showing results for VIN: <strong>${vin}</strong><br />
-        Filter: <strong>${filterType || 'All Types'}</strong><br />
-        Sort By: <strong>${sortBy.replace('_', ' ').toUpperCase()}</strong>
-      </div>`;
+      $('#results').html('<div class="alert alert-info">Loading data for VIN: <strong>' + vin + '</strong>...</div>');
 
-      // Display results
-      $('#results').html(resultHtml);
+      const dataToSend = JSON.stringify({ vins: [vin] });
+
+      $.ajax({
+        url: 'decode_vins.php', 
+        method: 'POST',
+        contentType: 'application/json',
+        data: dataToSend,
+        dataType: 'json',
+        success: function(response) {
+          if (response.success && response.data && response.data.length > 0) {
+            const vinInfo = response.data[0]; 
+
+            let html = `<h4>VIN Information for <code>${vin}</code>:</h4>`;
+            html += '<table class="table table-bordered table-sm"><tbody>';
+            for (const key in vinInfo) {
+              html += `<tr><th>${key}</th><td>${vinInfo[key]}</td></tr>`;
+            }
+            html += '</tbody></table>';
+
+            $('#results').html(html);
+          } else {
+            $('#results').html('<div class="alert alert-warning">No data found for the entered VIN.</div>');
+          }
+        },
+        error: function(xhr, status, error) {
+          $('#results').html(`<div class="alert alert-danger">Error fetching data: ${error}</div>`);
+        }
+      });
     });
   </script>
 </body>

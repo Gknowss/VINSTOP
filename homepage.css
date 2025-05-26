@@ -11,8 +11,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-size: 17px; /* Slightly larger for readability */
-  line-height: 1.6; /* More breathing room between lines */
+  font-size: 17px;
+  line-height: 1.6; 
 }
 
 main {
@@ -26,7 +26,7 @@ footer {
   color: #d8dee4;
   padding: 16px 0;
   text-align: center;
-  font-size: 15px; /* Slightly smaller but still readable */
+  font-size: 15px; 
   line-height: 1.5;
 }
 
@@ -92,31 +92,28 @@ footer a img {
   }
 }
 
-/* Search form input alignment */
 #searchForm .form-control {
   min-width: 150px;
 }
 
-/* Filter options spacing */
 #filterOptions {
   margin-left: 0.5rem;
   gap: 10px;
 }
 
-/* Large screen inline search and filters */
 @media (min-width: 992px) {
   #navbarSupportedContent {
-    display: flex !important;  /* show navbar content on large screens */
+    display: flex !important; 
     height: auto !important;
     visibility: visible !important;
     flex-grow: 1;
-    justify-content: flex-end;  /* optional, aligns the form right */
+    justify-content: flex-end;
   }
 }
 
 @media (min-width: 992px) {
   #sortBy {
-    display: inline-block !important; /* override d-none */
+    display: inline-block !important;
     visibility: visible !important;
   }
 }
