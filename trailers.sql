@@ -1,0 +1,1 @@
+CREATE TABLE vins(vinid INTEGER NOT NULL PRIMARY KEY, vinname TEXT);
