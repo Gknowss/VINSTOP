@@ -1,13 +1,36 @@
-# Vin-Diesel-Trucking
-Personal Project to gather trailer VIN's and their repair/driver/report history
+# Vin Diesel Trucking
 
+*CARFAX for Trailers* – A personal project to gather and display trailer VINs, along with their repair, driver, and report history.
 
-# To-Do List (will delete this later)
+## Overview
 
-    Make a basic landing page describing what this is (CARFAX for trailers)
+**Vin-Diesel-Trucking** is a web-based tool that helps track and retrieve data tied to trailer VINs (Vehicle Identification Numbers).  
+Think of it like a CARFAX report, but for trucking trailers.
 
-    Two pages for:
-        Searching a specific VIN
-        A Page with a list of several trailers to choose
+This project is being developed to simplify maintenance, ownership, and operational transparency across trailer fleets by providing quick VIN lookups and report generation.
 
-    Make a page taking the info of a given trailer, display info, and allow for downloadable CSV
+> **Powered by:** [NHTSA's VIN Decoding API](https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvaluesbatch/)  
+> This API is used to decode vehicle VINs and retrieve basic trailer information.
+
+## Features (Planned & In Progress)
+
+- **Search by VIN**: Input a specific VIN to retrieve associated trailer information, including service history, driver assignments, and usage reports.
+- **Trailer List View**: Browse a list of trailers in the system and select one to view detailed info.
+- **Trailer Detail Page**: See comprehensive data about a trailer, including:
+  - Repair history  
+  - Assigned drivers  
+  - Incident and usage reports
+- **Downloadable Reports**: Export trailer info as a CSV for offline use or recordkeeping.
+
+## 🛠 Tech Stack
+
+- **Frontend**: <!-- TBD -->
+- **Backend**: <!-- TBD -->
+- **Database**: <!-- TBD -->
+
+*(To be updated as development progresses)*
+
+## Getting Started
+
+Instructions coming soon once basic functionality is in place.  
+For now, this is a solo dev project and not ready for public use.
