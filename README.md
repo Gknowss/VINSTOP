@@ -9,6 +9,9 @@ Think of it like a CARFAX report, but for trucking trailers.
 
 This project is being developed to simplify maintenance, ownership, and operational transparency across trailer fleets by providing quick VIN lookups and report generation.
 
+> **Powered by:** [NHTSA's VIN Decoding API](https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvaluesbatch/)  
+> This API is used to decode vehicle VINs and retrieve basic trailer information.
+
 ## Features (Planned & In Progress)
 
 - **Search by VIN**: Input a specific VIN to retrieve associated trailer information, including service history, driver assignments, and usage reports.
