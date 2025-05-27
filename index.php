@@ -17,7 +17,7 @@
 
   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light shadow-sm">
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="../Saf_edits/images/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg" alt="Vin Diesel Trucking Logo" class="logo-img mr-2" style="height:40px; width:auto; border-radius:10%;" />
+      <img src="../images/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg" alt="Vin Diesel Trucking Logo" class="logo-img mr-2" style="height:40px; width:auto; border-radius:10%;" />
       <span class="font-weight-bold">Vin Diesel Trucking</span>
     </a>
 
@@ -98,7 +98,7 @@
 
   <footer class="bg-light text-center py-4 mt-auto shadow-sm">
     <a href="#" class="d-inline-flex align-items-center mb-3 text-decoration-none text-dark">
-      <img src="../Saf_edits/images/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg" alt="Footer Logo" style="height: 40px; width: auto; border-radius: 10%; margin-right: 8px;" />
+      <img src="../images/depositphotos_331503262-stock-illustration-no-image-vector-symbol-missing.jpg" alt="Footer Logo" style="height: 40px; width: auto; border-radius: 10%; margin-right: 8px;" />
       <span class="font-weight-bold">Vin Diesel Trucking</span>
     </a>
     <nav class="mb-3">
@@ -137,6 +137,7 @@
 
       const dataToSend = { vins: [vin] };
 
+      // Current static backend call — will be replaced with DB call later
       $.ajax({
         url: '../backend/decode_vins.php',
         method: 'POST',
@@ -160,11 +161,29 @@
           }
         },
         error: function(xhr, status, error) {
-          $('#results').html(`<div class="alert alert-danger">Error fetching data: ${error}</div>`);
+          $('#results').html('<div class="alert alert-danger">An error occurred while fetching VIN data.</div>');
+          console.error('Error fetching VIN data:', error);
         }
       });
+
+      /*
+      // TODO: Replace above AJAX with DB-backed implementation
+      // Example future setup when backend connects to DB:
+      // $.ajax({
+      //   url: '../backend/query_trailers.php',
+      //   method: 'POST',
+      //   contentType: 'application/json',
+      //   data: JSON.stringify({ vin: vin }),
+      //   success: function(data) {
+      //     // Render DB results
+      //   },
+      //   error: function(err) {
+      //     console.error('Database query failed:', err);
+      //   }
+      // });
+      */
     });
   </script>
-</body>
 
+</body>
 </html>
