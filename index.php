@@ -166,6 +166,19 @@
         }
       });
 
+      <?php if ($result->num_rows > 0)  ?>
+        <div>
+            <form action="create_csv.php" method="post">
+                <!-- export csv -->
+                <button
+                  type="submit"
+                  class="card"
+                  name = "creare_csv">
+                  Download
+                </button>
+            </form>
+        </div>
+
       /*
       // TODO: Replace above AJAX with DB-backed implementation
       // Example future setup when backend connects to DB:

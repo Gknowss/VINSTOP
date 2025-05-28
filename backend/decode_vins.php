@@ -41,7 +41,7 @@ foreach ($vins as $vin) {
         'make' => 'MockMake',
         'model' => 'MockModel',
         'year' => 2025,
-        'vehicle_type' => 'Passenger Car',
+        'vehicle_type' => 'Semi Trailer', //Changed this to fit trailer theme
         'engine' => 'V6',
         'trim' => 'MockTrim',
         'plant_country' => 'MockCountry',
